@@ -6,21 +6,16 @@ public class Number
   {
     var numString = n.ToString();
     var root = 0;
-    for (var i = 0; i < numString.Length; i++)
+    while (numString.Length > 1)
     {
-      var converter = Char.ToString(numString[i]);
-      root = root + int.Parse(converter);
-    }
-    while (root > 9 && root > 0)
-    {
-      root = 0;
-      var reducer = root.ToString();
-      for (var j = 0; j < reducer.Length; j++)
+      for (var i = 0; i < numString.Length; i++)
       {
-        var looper = Char.ToString(reducer[j]);
-        root = root + int.Parse(looper);
+        var converter = Char.ToString(numString[i]);
+        root = root + int.Parse(converter);
       }
+      numString = root.ToString();
+      root = 0;
     }
-    return root;
+    return numString.Length == 0 ? 0 : Convert.ToInt32(numString);
   }
 }
