@@ -1,8 +1,11 @@
 function cleanString(s) {
-  let sArray = s.split("");
-  for (let i = 0; i < sArray.length; i++) {
-    if (sArray[i] === "#") {
-      sArray.pop(sArray);
+  let answer = [];
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "#") {
+      answer.pop();
+    } else {
+      answer.push(s[i]);
     }
   }
+  return answer.join().replace(/,/g, "");
 }
