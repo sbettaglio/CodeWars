@@ -5,27 +5,12 @@ public class Kata
 {
   public static long QueueTime(int[] customers, int n)
   {
+    int[] checkout = new int[n];
 
-    if (n <= 1)
+    for (int i = 0; i < customers.Length; i++)
     {
-      return customers.Sum();
+      checkout[Array.IndexOf(checkout, checkout.Min())] += customers[i];
     }
-    else if (customers.Max() < n)
-    {
-      return customers.Max();
-    }
-    else
-    {
-      Queue line = new Queue();
-      for (var i = 0; i < customers.Length; i++)
-      {
-        line.Enqueue(customers[i]);
-      }
-      while (line.Count > 0)
-      {
-
-      }
-      return (line);
-    }
+    return checkout.Max();
   }
 }
